@@ -38,6 +38,8 @@ def remove():
     except EOFError:
         pass
 
+    f.close()
+    new_f.close()
     os.remove("emp.dat")
     os.rename("emp_backup.dat","emp.dat")
 

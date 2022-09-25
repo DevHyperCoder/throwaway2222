@@ -28,10 +28,9 @@ def remove():
 	new_f = open("stu_backup.dat","wb")
 	
 	try:
-		roll= int(input("Enter roll to delete: "))
 		while True:
 			stu = pickle.load(f)
-			if stu[0] == roll:
+			if stu[2] < 60:
 				continue
 			pickle.dump(stu,new_f)
 	except EOFError:
