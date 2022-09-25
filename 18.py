@@ -24,24 +24,24 @@ def display():
             pass
 
 def remove():
-	f = open("stu.dat","rb")
-	new_f = open("stu_backup.dat","wb")
+    f = open("stu.dat","rb")
+    new_f = open("stu_backup.dat","wb")
 	
-	try:
-		roll= int(input("Enter roll to delete: "))
-		while True:
-			stu = pickle.load(f)
-			if stu[0] == roll:
-				continue
-			pickle.dump(stu,new_f)
-	except EOFError:
-		pass
+    try:
+        roll= int(input("Enter roll to delete: "))
+        while True:
+            stu = pickle.load(f)
+            if stu[0] == roll:
+                continue
+            pickle.dump(stu,new_f)
+    except EOFError:
+        pass
 	
     f.close()
     new_f.close()
 
-	os.remove("stu.dat")
-	os.rename("stu_backup.dat","stu.dat")
+    os.remove("stu.dat")
+    os.rename("stu_backup.dat","stu.dat")
 
 	
 while True:

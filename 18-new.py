@@ -24,23 +24,23 @@ def display():
             pass
 
 def remove():
-	f = open("stu.dat","rb")
-	new_f = open("stu_backup.dat","wb")
+    f = open("stu.dat","rb")
+    new_f = open("stu_backup.dat","wb")
 	
-	try:
-		while True:
-			stu = pickle.load(f)
-			if stu[2] < 60:
-				continue
-			pickle.dump(stu,new_f)
-	except EOFError:
-		pass
+    try:
+        while True:
+            stu = pickle.load(f)
+            if stu[2] < 60:
+                continue
+            pickle.dump(stu,new_f)
+    except EOFError:
+        pass
 	
     f.close()
     new_f.close()
 
-	os.remove("stu.dat")
-	os.rename("stu_backup.dat","stu.dat")
+    os.remove("stu.dat")
+    os.rename("stu_backup.dat","stu.dat")
 
 	
 while True:
